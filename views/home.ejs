@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head.ejs") %>
+
+  <body>
+    <h1>EBILITY TECH</h1>
+    <h2>Welcome To My World</h2>
+    <%- include("../partials/nav.ejs") %>
+
+    <section class="img-holder">
+      <img src="IMG_1208.jpg" alt="display image">
+      <p>I am Eberechukwu Kelvin Oguguo, a pasionate developer with express in Javascript, Node.js, React.js etc.</p>
+    </section>
+
+    <div>
+      <h2>Users That Checked In</h2>
+
+      <% if (data.name && data.email) { %>
+        <p>Welcome, <%= data.name %>! Your email is <%= data.email %>.</p>
+      <% } %>
+
+    </div>
+
+    <%- include("../partials/foot.ejs") %>
+  </body>
+</html>

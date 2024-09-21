@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head.ejs") %>
+
+<body>
+  <h2>Projects</h2>
+  <%- include("../partials/nav.ejs") %>
+
+  <section>
+    <div class="project-sec">
+      <h3>Project Name</h3>
+      <p>Description of the project</p>
+      <p><strong>Technologies Used:</strong>
+        <ul>
+          <li>Node.js</li>
+          <li>Express.js</li>
+          <li>MongoDB</li>
+          <li>React.js</li>
+        </ul>
+      </p>
+
+      <a href="https://github.com/yourusername/project-repo">View on GitHub</a>
+    </div>
+    <!-- Repeat for other projects -->
+  </section>
+  
+  <%- include("../partials/foot.ejs") %>
+</body>
+</html>

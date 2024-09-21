@@ -1,0 +1,142 @@
+body{
+  max-width: 1200px;
+  margin: 15px auto;
+  padding: 0 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+h1, h2, h3, a{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #222;
+}
+
+h3{
+  font-size: 30px;
+  font-weight: 700;
+  justify-content: space-between;
+  margin: 15px auto 20px;
+}
+
+
+p, li{
+  margin: 0;
+  padding: 0;
+  font-size: 30px;
+  font-weight: 900;
+  color: darkolivegreen;
+  justify-content: space-between;
+
+}
+
+h2{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  text-transform: uppercase;
+}
+
+nav{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-left: 40px;
+  margin-top: 50px;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.5em;
+  color: #222;
+  list-style-type: none;
+  font-weight: 300;
+}
+
+img{
+  height: 20rem;
+  width: 20rem;
+  border: 5px solid #222;
+  border-radius: 100px;
+  margin-left: -20px;
+}
+
+.img-holder{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.img-holder p{
+  margin-top: 8rem;
+}
+
+section{
+  margin: 50px auto 10px;
+  padding: 100px;
+}
+
+.project-sec p{
+  color: #222;
+  padding: 50px;
+}
+
+.fill-form form{
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.fill-form input,
+.fill-form textarea{
+  display: block;
+  width: 100%;
+  margin: 0px 0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.fill-form label{
+  display: block;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.fill-form p{
+  margin-top: 10rem;
+  margin-left: 200px;
+}
+
+.fill-form button{
+  margin-top: 20px;
+  background: gray;
+  color: #222;
+  padding: 7px;
+  border-radius: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+textarea{
+  height: 120px;
+}
+
+.social-media {
+  margin-top: 20px;
+}
+
+.social-media a {
+  margin: 0 10px;
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+}
+
+.social-media a:hover{
+  color: #007bff;
+}
+
+footer{
+  color: #777;
+  font-size: 10px;
+  text-align: center;
+  margin: 5rem auto 20px;
+}
+
