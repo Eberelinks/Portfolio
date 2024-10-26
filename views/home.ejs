@@ -9,18 +9,18 @@
 
     <section class="img-holder">
       <img src="IMG_1208.jpg" alt="display image">
-      <p>I am Eberechukwu Kelvin Oguguo, a pasionate developer with express in Javascript, Node.js, React.js etc.</p>
+      <p>My name is Eberechukwu Kelvin Oguguo, An excellent web developer in Javascript programming language. I work both on the frontend using React.js framework and on the backend using Node.js and Express.js etc.</p>
     </section>
 
     <div>
-      <h2>Users That Checked In</h2>
-
-      <% if (data.name && data.email) { %>
+      <% if (locals.data.name && data.email) { %>
         <p>Welcome, <%= data.name %>! Your email is <%= data.email %>.</p>
+      <% } else { %>
+        <h2>Users That Checked In</h2>
       <% } %>
 
     </div>
-
+    <%- include("../partials/social.ejs")%>
     <%- include("../partials/foot.ejs") %>
   </body>
 </html>
