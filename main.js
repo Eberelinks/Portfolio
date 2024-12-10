@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const app = express();
-// const contactRouter = require("./routes/contactRouter");
 const PORT = 8080;
 
 // register view engine
@@ -13,8 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/css", express.static(path.join(__dirname, "node_modules/@fortawesome/fontawesome-free/css")));
 app.use("/webfonts", express.static(path.join(__dirname, "node_modules/@fortawesome/fontawesome-free/webfonts")));
-
-  
+ 
 // new date object
 const now = new Date();
 
@@ -28,31 +26,23 @@ const date = now.getDate();
 const month = now.getMonth() + 1;//months are zero-based
 const year = now.getFullYear();
 
-//time format
+//time and date format
 const timeString = `${hours}: ${minutes}: ${seconds}`;
-
-//date format
 const dateString = `${date} / ${month} / ${year}`;
-
 
 //print the time and date
 console.log(`Time: ${timeString}`);
 console.log(`Date: ${dateString}`);
 
-
 let submittedData = { name: " ", email: " " };
 
 //routes
-
 app.get("/(home)?", (req, res) => {
-  res.render("home", { title: "Home Page", data: submittedData});
+  res.render("home", { title: "Home Page", data: submittedData, time: timeString, date: dateString});
 });
 
-// app.use("/contact", contactRouter);
-
-
 app.get("/contact", (req, res) => {
-  res.render("contact", { title: "Contage Page"});
+  res.render("contact", { title: "Contact Page", time: timeString, date: dateString});
 });
 
 app.post("/contact", (req, res) => {
@@ -62,15 +52,20 @@ app.post("/contact", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.render("about", { title: "About Page"});
+  res.render("about", { title: "About Page", time: timeString, date: dateString });
 });
 
 app.get("/projects", (req, res) => {
-  res.render("projects", { title: "Project Page"});
+  res.render("projects", { title: "Project Page", time: timeString, date: dateString });
 });
 
 app.get("/service", (req, res) => {
-  res.render("service", { title: "Service Page"});
+  res.render("service", { title: "Service Page", time: timeString, date: dateString });
 });
 
 app.listen(PORT, () => console.log("Server is running at port", PORT));
+
+module.exports = {
+  timeString,
+  dateString
+};
