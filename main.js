@@ -64,8 +64,3 @@ app.get("/service", (req, res) => {
 });
 
 app.listen(PORT, () => console.log("Server is running at port", PORT));
-
-module.exports = {
-  timeString,
-  dateString
-};
