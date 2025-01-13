@@ -1,8 +1,11 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const time = require("./display/timeString");
+const date = require("./display/dateString")
 const app = express();
-const PORT = 8080;
+const portfolioHost = process.env.PORTFOLIO_HOST || "localhost";
+const portfolioPort = process.env.PORTFOLIO_PORT || 8080;
 
 // register view engine
 app.set("view engine", "ejs");
@@ -13,36 +16,19 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/css", express.static(path.join(__dirname, "node_modules/@fortawesome/fontawesome-free/css")));
 app.use("/webfonts", express.static(path.join(__dirname, "node_modules/@fortawesome/fontawesome-free/webfonts")));
  
-// new date object
-const now = new Date();
-
-//get current time
-const hours = now.getHours();
-const minutes = now.getMinutes();
-const seconds = now.getSeconds();
-
-//get the current date
-const date = now.getDate();
-const month = now.getMonth() + 1;//months are zero-based
-const year = now.getFullYear();
-
-//time and date format
-const timeString = `${hours}: ${minutes}: ${seconds}`;
-const dateString = `${date} / ${month} / ${year}`;
-
 //print the time and date
-console.log(`Time: ${timeString}`);
-console.log(`Date: ${dateString}`);
+console.log(`Time: ${time() }`);
+console.log(`Date: ${date() }`);
 
 let submittedData = { name: " ", email: " " };
 
 //routes
 app.get("/(home)?", (req, res) => {
-  res.render("home", { title: "Home Page", data: submittedData, time: timeString, date: dateString});
+  res.render("home", { title: "Home Page", data: submittedData, time: time(), date: date() });
 });
 
 app.get("/contact", (req, res) => {
-  res.render("contact", { title: "Contact Page", time: timeString, date: dateString});
+  res.render("contact", { title: "Contact Page", time: time() , date: date() });
 });
 
 app.post("/contact", (req, res) => {
@@ -52,15 +38,15 @@ app.post("/contact", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.render("about", { title: "About Page", time: timeString, date: dateString });
+  res.render("about", { title: "About Page", time: time(), date: date() });
 });
 
 app.get("/projects", (req, res) => {
-  res.render("projects", { title: "Project Page", time: timeString, date: dateString });
+  res.render("projects", { title: "Project Page", time: time(), date: date() });
 });
 
 app.get("/service", (req, res) => {
-  res.render("service", { title: "Service Page", time: timeString, date: dateString });
+  res.render("service", { title: "Service Page", time: time(), date: date() });
 });
 
-app.listen(PORT, () => console.log("Server is running at port", PORT));
+app.listen(portfolioPort, () => console.log(`Server is running with ${portfolioHost} on port`, portfolioPort));
