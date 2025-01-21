@@ -14,13 +14,7 @@ const portfolioPort = process.env.PORTFOLIO_PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// function detailPassed (req, res, next) {
-//   let submittedData = { name: " ", email: " "};
-//   submittedData.name = req.body.name;
-//   submittedData.email = req.body.email;
-//   next()
-// };
-// register view engine
+
 app.set("view engine", "ejs");
 
 //middlewares and static files
