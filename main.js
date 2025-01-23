@@ -2,12 +2,17 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const time = require("./display/timeString");
-const date = require("./display/dateString")
+const date = require("./display/dateString");
+const mongoose = require("mongoose");
+const User = require("./mongoose/schemas/users")
 const app = express();
 const portfolioHost = process.env.PORTFOLIO_HOST || "localhost";
 const portfolioPort = process.env.PORTFOLIO_PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+mongoose.connect("mongodb://localhost:27017/profile")
+.then(() => console.log("Connected to Database"))
+.catch((error) => console.log(`Error: ${error}`));
 
 
 app.set("view engine", "ejs");
