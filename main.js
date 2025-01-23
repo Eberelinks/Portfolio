@@ -10,7 +10,7 @@ const portfolioHost = process.env.PORTFOLIO_HOST || "localhost";
 const portfolioPort = process.env.PORTFOLIO_PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-mongoose.connect("mongodb://localhost:27017/profile")
+mongoose.connect(process.env.DATABASE_URL)
 .then(() => console.log("Connected to Database"))
 .catch((error) => console.log(`Error: ${error}`));
 
